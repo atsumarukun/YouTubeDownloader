@@ -4,5 +4,11 @@
 # save music directory
 music
 
+# save videos directory
+videos
+
+# temporary directory
+tmp
+
 # python chache directory
 __pycache__

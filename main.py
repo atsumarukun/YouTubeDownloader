@@ -10,8 +10,14 @@ def response(channel, text):
     urls = re.findall(pattern, text)
     response_text = '\n-------------------------------------\n下記をダウンロードしました.\n-------------------------------------\n'
     try:
-        for url in urls:
-            response_text += f'\n・{downloader.audio(url)}'
+        if (channel == os.environ['MUSIC_CHANNEL']):
+            for url in urls:
+                response_text += f'\n・{downloader.audio(url)}'
+        elif (channel == os.environ['VIDEOS_CHANNEL']):
+            for url in urls:
+                response_text += f'\n・{downloader.video(url)}'
+        else:
+            response_text = 'ダウンロードに失敗しました.'
     except:
         response_text = 'ダウンロードに失敗しました.'
     return response_text
