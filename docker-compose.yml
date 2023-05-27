@@ -1,0 +1,10 @@
+version: "3.6"
+services:
+  app:
+    build: ./
+    restart: always
+    volumes:
+      - .:/opt/app
+      - ./music:/opt/app/music
+    working_dir: /opt/app
+    command: python3 main.py
