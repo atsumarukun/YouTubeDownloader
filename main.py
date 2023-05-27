@@ -12,7 +12,7 @@ def response(channel, text):
     try:
         if (channel == os.environ['MUSIC_CHANNEL']):
             for url in urls:
-                response_text += f'\n・{downloader.audio(url)}'
+                response_text += f'\n・{downloader.music(url)}'
         elif (channel == os.environ['VIDEOS_CHANNEL']):
             for url in urls:
                 response_text += f'\n・{downloader.video(url)}'
