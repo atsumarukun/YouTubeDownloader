@@ -3,3 +3,6 @@
 
 # save music directory
 music
+
+# python chache directory
+__pycache__
