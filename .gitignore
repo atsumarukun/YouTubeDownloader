@@ -12,3 +12,6 @@ tmp
 
 # python chache directory
 __pycache__
+
+# logging file
+python.log

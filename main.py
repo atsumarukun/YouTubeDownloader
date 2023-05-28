@@ -1,10 +1,12 @@
-import os, re
+import os, re, logging
 from dotenv import load_dotenv
 
 from slack import Slack
 from youtube import Downloader
 
 def response(channel, text):
+    logging.basicConfig(level=logging.ERROR, format="[%(asctime)s] %(message)s", filename="python.log")
+
     downloader = Downloader()
     pattern = 'https?://[\w/:%#\$&\?\(\)~\.=\+\-]+'
     urls = re.findall(pattern, text)
@@ -18,7 +20,8 @@ def response(channel, text):
                 response_text += f'\n・{downloader.video(url)}'
         else:
             response_text = 'ダウンロードに失敗しました.'
-    except:
+    except Exception as e:
+        logging.error(e)
         response_text = 'ダウンロードに失敗しました.'
     return response_text
 
