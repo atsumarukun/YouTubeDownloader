@@ -12,7 +12,7 @@ class Downloader:
             if max_abr < abr:
                 stream = s
                 max_abr = abr
-        title = stream.title.replace('/', '').replace(',', '').replace("#", "")
+        title = stream.title.replace('/', '').replace(',', '').replace("#", "").replace(" ", "")
         if not os.path.isfile(f'./tmp/audio/{title}.webm'):
             if not os.path.isdir('./tmp/audio'):
                 os.makedirs('./tmp/audio')
@@ -32,7 +32,7 @@ class Downloader:
                 stream = s
                 max_fps = fps
                 max_res = res
-        title = stream.title.replace('/', '').replace(',', '').replace("#", "")
+        title = stream.title.replace('/', '').replace(',', '').replace("#", "").replace(" ", "")
         if not os.path.isfile(f'./tmp/video/{title}.webm'):
             if not os.path.isdir('./tmp/video'):
                 os.makedirs('./tmp/video')
@@ -59,3 +59,9 @@ class Downloader:
         if os.path.isdir('./tmp'):
             shutil.rmtree('./tmp')
         return title
+
+if __name__ == "__main__":
+        title = "【1～8話】転生したらスライムだった件 1期 2023年10月24日(火)AM1159まで期間限定イッキ見！【公式アニメ全話】"
+        video = ffmpeg.input(f'./tmp/video/{title}.webm')
+        audio = ffmpeg.input(f'./tmp/audio/{title}.webm')
+        ffmpeg.output(video, audio, f'./videos/{title}.mp4').run(capture_stderr=True)
