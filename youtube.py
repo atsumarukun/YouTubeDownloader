@@ -59,9 +59,3 @@ class Downloader:
         if os.path.isdir('./tmp'):
             shutil.rmtree('./tmp')
         return title
-
-if __name__ == "__main__":
-        title = "【1～8話】転生したらスライムだった件 1期 2023年10月24日(火)AM1159まで期間限定イッキ見！【公式アニメ全話】"
-        video = ffmpeg.input(f'./tmp/video/{title}.webm')
-        audio = ffmpeg.input(f'./tmp/audio/{title}.webm')
-        ffmpeg.output(video, audio, f'./videos/{title}.mp4').run(capture_stderr=True)
