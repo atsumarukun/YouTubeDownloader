@@ -12,7 +12,7 @@ class Downloader:
             if max_abr < abr:
                 stream = s
                 max_abr = abr
-        title = stream.title.replace('/', '').replace(',', '').replace("#", "").replace(" ", "")
+        title = stream.title.replace('/', '').replace(',', '').replace("#", "").replace(":", "")
         if not os.path.isfile(f'./tmp/audio/{title}.webm'):
             if not os.path.isdir('./tmp/audio'):
                 os.makedirs('./tmp/audio')
@@ -32,7 +32,7 @@ class Downloader:
                 stream = s
                 max_fps = fps
                 max_res = res
-        title = stream.title.replace('/', '').replace(',', '').replace("#", "").replace(" ", "")
+        title = stream.title.replace('/', '').replace(',', '').replace("#", "").replace(":", "")
         if not os.path.isfile(f'./tmp/video/{title}.webm'):
             if not os.path.isdir('./tmp/video'):
                 os.makedirs('./tmp/video')

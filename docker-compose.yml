@@ -8,5 +8,4 @@ services:
       - ./music:/opt/app/music
       - ./videos:/opt/app/videos
     working_dir: /opt/app
-    # command: python3 main.py
-    tty: true
+    command: python3 main.py
